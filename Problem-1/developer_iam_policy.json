@@ -1,0 +1,64 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:ListTagsForResource",
+                "cloudwatch:GetMetricStream"
+            ],
+            "Resource": [
+                "arn:aws:cloudwatch:*:{account-number}:insight-rule/<resource-name>*",
+                "arn:aws:cloudwatch:*:{account-number}:metric-stream/<resource-name>*"
+            ]
+        },
+        {
+            "Sid": "ReadAccessToCloudWatch",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:GetMetricData",
+                "cloudwatch:ListMetricStreams",
+                "cloudwatch:ListDashboards",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny", 
+            "Action": [
+                "codecommit:GitPush",
+                "codecommit:DeleteBranch",
+                "codecommit:PutFile",
+                "codecommit:MergePullRequestByFastForward"
+            ],
+            "Resource": "arn:aws:codecommit:{account-number}:<repo-name>",
+            "Condition": {
+                "StringEqualsIfExists": {
+                    "codecommit:References": [
+                        "refs/heads/*prod",
+                        "refs/heads/*staging"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowAllPermissionsToRepo",
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:CreateBranch",
+                "codecommit:GitPush",
+                "codecommit:DeleteBranch",
+                "codecommit:PutFile",
+                "codecommit:MergePullRequestByFastForward",
+                "codecommit:PostCommentForPullRequest",
+                "codecommit:CreatePullRequest",
+                "codecommit:UpdatePullRequestStatus",
+                "codecommit:UpdatePullRequestApprovalState",
+                "codecommit:UpdatePullRequestDescription"
+            ],
+            "Resource": "arn:aws:codecommit:*:{account-number}:<repo-name>"
+        }
+    ]
+}

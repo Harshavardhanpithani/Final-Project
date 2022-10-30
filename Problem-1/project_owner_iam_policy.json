@@ -1,0 +1,60 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "apigateway:PUT",
+                "cloudwatch:GetMetricData",
+                "cloudwatch:ListMetricStreams",
+                "cloudwatch:ListDashboards",
+                "apigateway:POST",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:CreateBranch",
+                "codebuild:StopBuild",
+                "codecommit:UpdatePullRequestApprovalRuleContent",
+                "lambda:RemoveLayerVersionPermission",
+                "codecommit:UpdatePullRequestTitle",
+                "codebuild:UpdateProject",
+                "codecommit:MergePullRequestByThreeWay",
+                "codecommit:UpdateRepositoryDescription",
+                "cloudwatch:ListTagsForResource",
+                "codecommit:CreatePullRequest",
+                "codecommit:UpdatePullRequestStatus",
+                "codecommit:UpdatePullRequestApprovalState",
+                "codecommit:UpdatePullRequestDescription",
+                "lambda:UpdateFunctionConfiguration",
+                "lambda:AddLayerVersionPermission",
+                "lambda:UpdateFunctionCode",
+                "codecommit:MergePullRequestBySquash",
+                "lambda:AddPermission",
+                "codecommit:UpdateRepositoryName",
+                "cloudwatch:GetMetricStream",
+                "codecommit:MergePullRequestByFastForward",
+                "codebuild:StartBuild",
+                "codecommit:GitPush",
+                "lambda:RemovePermission",
+                "codecommit:DeleteBranch"
+            ],
+            "Resource": [
+                "arn:aws:codecommit:*:{account-number}:*",
+                "arn:aws:cloudwatch:*:{account-number}:metric-stream/*",
+                "arn:aws:cloudwatch:*:{account-number}:alarm:*",
+                "arn:aws:cloudwatch:*:{account-number}:alarm:*",
+                "arn:aws:cloudwatch:*:{account-number}:insight-rule/*",
+                "arn:aws:lambda:*:{account-number}:function:*",
+                "arn:aws:lambda:*:{account-number}:layer:*:*",
+                "arn:aws:codebuild:*:{account-number}:project/*"
+            ]
+        }
+    ]
+}

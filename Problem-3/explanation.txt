@@ -1,0 +1,7 @@
+1. Clone the existing django repo
+2. Create a fresh repo in my profile
+3. Add remote origin for my repo in the clone django repo
+4. Do a " git rm -rf docs/ djanho/forms/" to remove the files
+5. Do "git add ." and "git commit -m "some message"
+6. Perfomr "git push origin main"
+7. Final Repo https://github.com/Harshavardhanpithani/django-copy.git
